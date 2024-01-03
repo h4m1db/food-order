@@ -1,0 +1,21 @@
+
+                <?php
+                $categories = getCategory();
+                ?>
+                <?php foreach ($categories as $category) : ?>
+                    <option value="<?= $category['title'] ?>"> <?= $category['title'] ?></option>
+                <?php endforeach; ?>
+
+
+
+
+
+
+                function getIdCategory($category){
+    $mysqli = connect();
+    $res = $mysqli->query("SELECT id FROM tbl_category WHERE title = '$category'");
+    while($row = $res->fetch_assoc()){
+        $category_id[] = $row;
+    }
+    return $category_id;
+}
